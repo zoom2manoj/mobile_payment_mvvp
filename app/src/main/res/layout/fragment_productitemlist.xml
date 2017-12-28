@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="java.util.List"/>
+        <variable
+            name="isLoading"
+            type="boolean" />
+        <variable
+            name="productentity"
+            type="com.manoj.mobilepayment.db.entity.ProductEntity" />
+
+        <variable
+            name="proceedcalback"
+            type="com.manoj.mobilepayment.ui.callbacks.ProductCallback"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/loading_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/black"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/loading_products"
+            android:textAlignment="center"
+            android:visibility="@{isLoading?View.VISIBLE:View.GONE}"
+             />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{isLoading?View.GONE:View.VISIBLE}"
+            android:orientation="vertical">
+
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_productlist"
+            android:name="com.manoj.mobilepayment.ProductListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"
+            android:layout_above="@+id/proceed"
+            tools:listitem="@layout/fragment_productitem" />
+
+
+            <Button
+                android:id="@+id/proceed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:onClick="@{() -> proceedcalback.proceedCallBack()}"
+                android:text="@string/proceed" />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,227 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="radiocallback"
+            type="com.manoj.mobilepayment.ui.callbacks.RadioButtonCallback" />
+
+        <variable
+            name="radioinflateflage"
+            type="com.manoj.mobilepayment.ui.callbacks.RadioButtonInflateCallback" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scrollbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/continuebutton"
+            android:layout_margin="10dp"
+            android:scrollbars="none">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal"
+                    android:text="Select a payment method"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title">
+
+                    <RadioButton
+                        android:id="@+id/rbcreditcard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{(view) -> radiocallback.checkedFlage(view)}"
+                        android:padding="10dp"
+                        android:text="Credit Card"
+                        android:textColor="@android:color/black" />
+
+                    <LinearLayout
+                        android:id="@+id/cclayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{radioinflateflage.ccFlage?View.VISIBLE:View.GONE}"
+                        android:orientation="vertical"
+                        android:layout_margin="10dp">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="30"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:hint="Name"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="16"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:inputType="numberDecimal"
+                            android:hint="16 digit card number"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="mm/yy"
+                                android:lines="1"
+                                android:maxLines="1"
+                                android:maxLength="5"
+                                android:layout_weight="1"/>
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:maxLength="3"
+                                android:lines="1"
+                                android:maxLines="1"
+                                android:inputType="numberDecimal"
+                                android:hint="CVV"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <RadioButton
+                        android:id="@+id/rbdebitcard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{(view) -> radiocallback.checkedFlage(view)}"
+                        android:padding="10dp"
+                        android:text="Debit Card"
+                        android:textColor="@android:color/black" />
+
+                    <LinearLayout
+                        android:id="@+id/dclayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="@{radioinflateflage.dcFlage?View.VISIBLE:View.GONE}"
+                        android:layout_margin="10dp">
+
+
+                        <Spinner
+                            android:id="@+id/bankspinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@{radioinflateflage.array}"
+                            >
+
+                        </Spinner>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="30"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:hint="Name"/>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="16"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:inputType="numberDecimal"
+                            android:hint="16 digit card number"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="mm/yy"
+                                android:lines="1"
+                                android:maxLines="1"
+                                android:maxLength="5"
+                                android:layout_weight="1"/>
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:maxLength="3"
+                                android:lines="1"
+                                android:maxLines="1"
+                                android:inputType="numberDecimal"
+                                android:hint="CVV"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <RadioButton
+                        android:id="@+id/rbnetbanking"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{(view) -> radiocallback.checkedFlage(view)}"
+
+                        android:padding="10dp"
+                        android:text="Net Banking"
+                        android:textColor="@android:color/black" />
+
+                    <LinearLayout
+                        android:id="@+id/netbankinglayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="@{radioinflateflage.netbankingFlage?View.VISIBLE:View.GONE}"
+                        android:layout_margin="10dp">
+
+                        <Spinner
+                            android:id="@+id/internetbankingspinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@{radioinflateflage.array}"
+                            >
+
+                        </Spinner>
+                    </LinearLayout>
+                </RadioGroup>
+
+
+            </RelativeLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/continuebutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="5dp"
+            android:text="Continue"
+            android:onClick="@{() -> radiocallback.paymentProceed(radioinflateflage.amount, radioinflateflage.ccFlage, radioinflateflage.dcFlage,  radioinflateflage.netbankingFlage)}"
+            android:textColor="@android:color/black" />
+    </RelativeLayout>
+</layout>

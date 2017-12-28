@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="paymentcallback"
+            type="com.manoj.mobilepayment.ui.callbacks.PaymentOptionCallback" />
+
+        <variable
+            name="paymentamount"
+            type="com.manoj.mobilepayment.model.Payment" />
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_selectedproductlist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           android:layout_above="@+id/totaltv"
+            app:layoutManager="LinearLayoutManager"
+           />
+
+
+
+
+            <TextView
+                android:id="@+id/totaltv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/proceed"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="5dp"
+                android:text="@string/total_amount_in"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/totalamount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/proceed"
+                android:layout_margin="5dp"
+                android:layout_toRightOf="@+id/totaltv"
+                android:text="@{paymentamount.amount}"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+
+            <Button
+                android:id="@+id/proceed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:onClick="@{() -> paymentcallback.paymentOption(paymentamount.amount)}"
+                android:text="@string/payment" />
+
+    </RelativeLayout>
+
+
+</layout>
