@@ -1,10 +1,11 @@
 package com.manoj.mobilepayment.db;
 
 import android.annotation.SuppressLint;
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.os.AsyncTask;
+
+import androidx.lifecycle.MutableLiveData;
+import androidx.room.Room;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 

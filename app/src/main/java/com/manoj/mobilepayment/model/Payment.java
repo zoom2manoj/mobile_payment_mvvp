@@ -1,7 +1,8 @@
 package com.manoj.mobilepayment.model;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
+
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 
 import com.manoj.mobilepayment.BR;
 
@@ -9,7 +10,7 @@ import com.manoj.mobilepayment.BR;
  * Created by MBaghela1 on 11/10/2017.
  */
 
-public class Payment extends BaseObservable{
+public class Payment extends BaseObservable {
     private String amount ="";
 
     public Payment(){

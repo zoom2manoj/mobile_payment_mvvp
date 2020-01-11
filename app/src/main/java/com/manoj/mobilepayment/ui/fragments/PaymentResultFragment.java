@@ -1,12 +1,13 @@
 package com.manoj.mobilepayment.ui.fragments;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
 
 import com.manoj.mobilepayment.R;
 import com.manoj.mobilepayment.databinding.FragmentPaymentResultBinding;

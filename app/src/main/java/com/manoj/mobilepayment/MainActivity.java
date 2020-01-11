@@ -1,11 +1,13 @@
 package com.manoj.mobilepayment;
 
+
 import android.app.ProgressDialog;
-import android.arch.lifecycle.LifecycleOwner;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.LifecycleOwner;
 
 import com.manoj.mobilepayment.model.CartProduct;
 import com.manoj.mobilepayment.ui.fragments.PaymentOptionFragment;

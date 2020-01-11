@@ -1,14 +1,15 @@
 package com.manoj.mobilepayment.model;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
-import android.databinding.BindingAdapter;
-import android.databinding.InverseBindingAdapter;
-import android.databinding.InverseBindingListener;
-import android.support.v7.widget.AppCompatSpinner;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+
+import androidx.appcompat.widget.AppCompatSpinner;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+import androidx.databinding.BindingAdapter;
+import androidx.databinding.InverseBindingAdapter;
+import androidx.databinding.InverseBindingListener;
 
 import com.manoj.mobilepayment.BR;
 import com.manoj.mobilepayment.ui.callbacks.ISpinnerDataChange;
@@ -44,7 +45,7 @@ public class ProductQuantity extends BaseObservable {
 
 
 
-    @BindingAdapter(value = {"bind:selectedValue", "bind:selectedValueAttrChanged"}, requireAll = false)
+    @BindingAdapter(value = {"selectedValue", "selectedValueAttrChanged"}, requireAll = false)
     public static void bindSpinnerData(AppCompatSpinner pAppCompatSpinner, String newSelectedValue, final InverseBindingListener newTextAttrChanged) {
         pAppCompatSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -60,7 +61,7 @@ public class ProductQuantity extends BaseObservable {
             pAppCompatSpinner.setSelection(pos, true);
         }
     }
-    @InverseBindingAdapter(attribute = "bind:selectedValue", event = "bind:selectedValueAttrChanged")
+    @InverseBindingAdapter(attribute = "selectedValue", event = "selectedValueAttrChanged")
     public static String captureSelectedValue(AppCompatSpinner pAppCompatSpinner) {
         return (String) pAppCompatSpinner.getSelectedItem();
     }

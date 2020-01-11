@@ -1,10 +1,11 @@
 package com.manoj.mobilepayment.ui.adaptor;
 
-import android.databinding.DataBindingUtil;
-import android.support.v7.util.DiffUtil;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.manoj.mobilepayment.R;
 import com.manoj.mobilepayment.databinding.FragmentProductitemBinding;

@@ -45,7 +45,7 @@
 
 
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_productlist"
             android:name="com.manoj.mobilepayment.ProductListFragment"
             android:layout_width="match_parent"

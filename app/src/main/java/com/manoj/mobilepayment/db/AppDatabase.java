@@ -1,7 +1,8 @@
 package com.manoj.mobilepayment.db;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.RoomDatabase;
+
+import androidx.room.Database;
+import androidx.room.RoomDatabase;
 
 import com.manoj.mobilepayment.db.dao.ProductDao;
 import com.manoj.mobilepayment.db.entity.ProductEntity;
@@ -11,7 +12,7 @@ import com.manoj.mobilepayment.db.entity.ProductEntity;
  */
 
 @Database(entities = {ProductEntity.class}, version = 1)
-public abstract  class AppDatabase extends RoomDatabase{
+public abstract  class AppDatabase extends RoomDatabase {
     static final String DATABASE_NAME = "payment_module-db";
 
     public abstract ProductDao productDao();
